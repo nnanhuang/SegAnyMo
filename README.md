@@ -1,4 +1,4 @@
-# Segment Any Motion in Videos
+# [CVPR2025] Segment Any Motion in Videos
 **[Project Page](https://motion-seg.github.io/) | [Arxiv](https://motion-seg.github.io/)**
 
 [Nan Huang](https://github.com/nnanhuang)<sup>1,2</sup>, 
