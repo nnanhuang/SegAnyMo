@@ -1,0 +1,82 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "process",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/core/utils/run_inference.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--video_path", "/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/assets/demo.mp4",
+                "--e",
+                "--tracks"
+                // "--dinos"
+                // "--depth"
+                ]   
+        },
+        {
+            "name": "infer",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/core/utils/run_inference.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--video_path", "/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/assets/demo.mp4",
+                "--e",
+                "--motion_seg_infer",
+                "--motin_seg_dir","/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/assets/demo_res",
+                "--config_file","/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/configs/example_train.yaml"
+                ]   
+        },
+        {
+            "name": "inference-single",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/inference.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--imgs_dir","/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/assets/resize_images/demo",
+                "--save_dir","/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/assets/demo_res",
+                "--depths_dir","/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/assets/depth_anything_v2/demo",
+                "--track_dir","/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/assets/bootstapir/demo",
+                "--step", "10", 
+                "--config_file", "/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/configs/example_train.yaml"
+                ]   
+        },
+        {
+            "name": "Run Depth Estimation",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/core/utils/run_depth.py",
+            "console": "integratedTerminal",
+            "env": {
+                "CUDA_VISIBLE_DEVICES": "0" 
+            },
+            "args": [
+                "--img_dir", 
+                "/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/assets/resize_images/demo",        // 请替换为输入图像目录路径
+                "--out_raw_dir",
+                "/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/assets/depth_anything_v2/demo",      // 请替换为输出目录路径
+                "--model",
+                "depth-anything-v2"
+            ]
+        },
+        {
+            "name": "sam2",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/core/utils/run_inference.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--video_path", "/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/assets/demo.mp4",
+                "--e",
+                "--sam2",
+                "--motin_seg_dir","/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/assets/demo_res",
+                "--sam2dir","/rscratch/wzzheng/code/hn/particle-sfm/motion-clean/assets/sam_res"
+            ]   
+        },
+
+    ]
+}

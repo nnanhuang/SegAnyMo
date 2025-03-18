@@ -1,0 +1,44 @@
+cfg_name: "base_model"
+
+# dataset
+train_dataset: ["dynamic_stereo","kubric","waymo","hoi4d"]
+train_root: ["root/dynamic_stereo/dynamic_replica_data","root/kubric/movie_f","root/waymo/drivestudio/data/waymo/processed/train_new","root/HOI4D"]
+test_dataset: ["dynamic_stereo","kubric"]
+test_root: ["root/dynamic_stereo/dynamic_replica_data","root/kubric/movie_f"]
+num_workers: 0
+track_method: "bootstapir" # choose from [bootstapir, and cotracker]
+depth_type: "depth_anything_v2"
+prob1: 0.35
+prob2: 0.35
+prob3: 0
+prob4: 0.3
+
+# training
+batch_size: 1
+max_epochs: 6
+lr: 0.0001
+weight_decay: 0.0001
+print_freq: 10
+log_dir: "path to log dir"
+vis: False
+
+# model
+model_name: "traj_oa_depth"
+resume_path: "current_work_dir/moseg.pth"
+tracks: True
+depths: True
+extra_info: True
+dino: True
+dino_later: True # encoder: input augmentation phase, True
+dino_woatt: True # decoder: no attention, True
+time_att: True
+oanet: False
+pos_embed: True
+
+# outdated
+time_embed: False
+target_feature_dim: null # original:768
+efficient: False
+out_dim: 1
+two_label: True
+more_label: False

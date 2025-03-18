@@ -1,0 +1,9 @@
+[submodule "preproc/dinov2"]
+	path = preproc/dinov2
+	url = git@github.com:facebookresearch/dinov2.git
+[submodule "preproc/tapnet"]
+	path = preproc/tapnet
+	url = git@github.com:google-deepmind/tapnet.git
+[submodule "core/eval/davis2017-evaluation"]
+	path = core/eval/davis2017-evaluation
+	url = git@github.com:davisvideochallenge/davis2017-evaluation.git
