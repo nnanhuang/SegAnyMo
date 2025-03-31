@@ -1,5 +1,5 @@
 # [CVPR2025] Segment Any Motion in Videos
-**[Project Page](https://motion-seg.github.io/) | [Arxiv](https://motion-seg.github.io/)**
+**[Project Page](https://motion-seg.github.io/) | [Arxiv](https://arxiv.org/abs/2503.22268)**
 
 [Nan Huang](https://github.com/nnanhuang)<sup>1,2</sup>, 
 [Wenzhao Zheng](https://wzzheng.net/)<sup>1</sup>, 
