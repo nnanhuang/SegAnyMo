@@ -40,8 +40,8 @@ Our code is developed on Ubuntu 22.04 using Python 3.12 and PyTorch 2.4.0+cu121 
 ```bash
 git clone --recurse-submodules https://github.com/nnanhuang/SegAnyMo
 cd SegAnyMo/
-conda create -n seg3 python=3.12.4
-conda activate seg3
+conda create -n seg python=3.12.4
+conda activate seg
 conda install pytorch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 pytorch-cuda=12.1 -c pytorch -c nvidia
 pip install -r requirements.txt
 pip install -U xformers --index-url https://download.pytorch.org/whl/cu121
@@ -110,7 +110,7 @@ data
 ```bash
 python core/utils/run_inference.py --data_dir $DATA_DIR --gpus $GPU_ID --depths --tracks --dinos --e
 
-python core/utils/run_inference.py --video_path $DATA_DIR --gpus $GPU_ID --depths --tracks --dinos --e
+python core/utils/run_inference.py --video_path $VIDEO_PATH --gpus $GPU_ID --depths --tracks --dinos --e
 ```
 ### Tracks Label Prediction 
 - First download the model checkpoints and write the path to the resume_path in configs/example_train.yaml. (the resume_path part)
