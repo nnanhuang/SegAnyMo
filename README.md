@@ -114,10 +114,8 @@ python core/utils/run_inference.py --video_path $VIDEO_PATH --gpus $GPU_ID --dep
 ```
 ### Tracks Label Prediction 
 - First download the model checkpoints and write the path to the resume_path in configs/example_train.yaml. (the resume_path part)
-```
-wget https://huggingface.co/Changearthmore/moseg/resolve/main/moseg.pth
-```
-- Or you can download the model checkpoints from [here](https://drive.google.com/file/d/15VWtEqsROKAxdZbzaXrrmCm4k1D8SJJR/view?usp=drive_link)
+- You can download from [huggingface](https://huggingface.co/Changearthmore/moseg),
+- Or you can download the model checkpoints from [google drive](https://drive.google.com/file/d/15VWtEqsROKAxdZbzaXrrmCm4k1D8SJJR/view?usp=drive_link).
 
 - Running inference after process depth, dino features and 2d tracks. The predicted result will be saved at `motin_seg_dir`.
 ```bash
