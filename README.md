@@ -155,10 +155,7 @@ We take HOI4D as an instance.
 # preprocess images and dynamic masks
 python core/utils/process_HOI.py
 # preprocess else
-python core/utils/run_inference.py --data_dir current-data-dir/kubric/movie_f/validation/images --gpus 0 1 2 3 4 5 6 7 --tracks --depths
-
-conda activate dino
-python core/utils/run_inference.py --data_dir current-data-dir/HOI4D/images --gpus 0 1 2 3 4 5 6 7 --dinos
+python core/utils/run_inference.py --data_dir current-data-dir/kubric/movie_f/validation/images --gpus 0 1 2 3 4 5 6 7 --tracks --depths --dinos
 ```
 - (optianal) you can use this scripts to check if all data have been processed:
 ```bash
@@ -168,14 +165,14 @@ python current-data-dir/dynamic_stereo/dynamic_replica_data/check_process.py
 
 - (optianal) after processing, clean the data to save memory.
 ```bash
-python core/utils/run_inference.py --data_dir current-data-dir/waymo/drivestudio/data/waymo/processed/trainseg --gpus 0 1 2 3 4 5 6 7 --clean
+python core/utils/run_inference.py --data_dir $data_dir --gpus 0 1 2 3 4 5 6 7 --clean
 ```
 
 ### Training
 - process Kubric dataset, we train on Kubric-Movie-F subset; process dynamic-stereo & HOI4D as above.
 - When preprocess dynamic-stereo dataset, we use `cal_dynamic_mask.py` to get the groudtruth dynamic mask by caculate the groudtruth trajectory motion.
 
-- Train these datasets together
+- Train these datasets together:
 ```bash
 CUDA_VISIBLE_DEVICES=3 python train_seq.py ./configs/$CONFIG.yaml
 ```
