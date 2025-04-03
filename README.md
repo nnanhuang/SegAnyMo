@@ -157,13 +157,13 @@ python core/utils/process_HOI.py
 # preprocess else
 python core/utils/run_inference.py --data_dir current-data-dir/kubric/movie_f/validation/images --gpus 0 1 2 3 4 5 6 7 --tracks --depths --dinos
 ```
-- (optianal) you can use this scripts to check if all data have been processed:
+- (optional) you can use this scripts to check if all data have been processed:
 ```bash
 python current-data-dir/dynamic_stereo/dynamic_replica_data/check_process.py
 ```
 - If you want to train on a custom dataset, the dataset should have gt rgb and dynamic mask.
 
-- (optianal) after processing, clean the data to save memory.
+- (optional) after processing, clean the data to save memory.
 ```bash
 python core/utils/run_inference.py --data_dir $data_dir --gpus 0 1 2 3 4 5 6 7 --clean
 ```
