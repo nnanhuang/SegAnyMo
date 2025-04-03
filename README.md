@@ -75,6 +75,25 @@ wget https://storage.googleapis.com/dm-tapnet/bootstap/bootstapir_checkpoint_v2.
 ```
 
 ## Usage
+You can use our method very simply with three lines of code:
+```bash
+# Make sure you set up the environment and download all the checkpoints.
+# Make sure you already write the model ckpt path to the config file.
+
+# 1.Data Preprocessing:
+python core/utils/run_inference.py --video_path $VIDEO_PATH --gpus $GPU_ID --depths --tracks --dinos --e 
+# 2.Predicting Per-Track Motion Labels:
+python core/utils/run_inference.py --video_path $VIDEO_PATH --motin_seg_dir $OUTPUT_DIR --config_file $PATH --gpus $GPU_ID --motion_seg_infer --e 
+# 3.Generating the Final Masks:
+python core/utils/run_inference.py --video_path $VIDEO_PATH --sam2dir $RESULT_DIR --motin_seg_dir $OUTPUT_DIR --gpus $GPU_ID --sam2 --e 
+
+# For example:
+python core/utils/run_inference.py --data_dir ./data/images --gpus 0 1 2 3 --depths --tracks --dinos --e
+python core/utils/run_inference.py --data_dir ./data/images --motin_seg_dir ./result/moseg --config_file ./configs/example.yaml --gpus 0 1 2 3 --motion_seg_infer --e
+python core/utils/run_inference.py --data_dir ./data/images --sam2dir ./result/sam2 --motin_seg_dir ./result/moseg --gpus 0 1 2 3 --sam2 --e 
+# or use --video_path ./data/video.mp4
+```
+Please see below for specific usage details.
 
 ### Preprocessing
 We depend on the following third-party libraries for preprocessing:
@@ -111,6 +130,7 @@ data
 python core/utils/run_inference.py --data_dir $DATA_DIR --gpus $GPU_ID --depths --tracks --dinos --e
 
 python core/utils/run_inference.py --video_path $VIDEO_PATH --gpus $GPU_ID --depths --tracks --dinos --e
+
 ```
 ### Tracks Label Prediction 
 - First download the model checkpoints and write the path to the resume_path in configs/example_train.yaml. (the resume_path part)
